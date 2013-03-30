@@ -62,7 +62,7 @@ class DataURIFile {
             );
         }
 
-        if (!in_array($this->mime_type, $allowed['mime_types'])) {
+        if (count($allowed['mime_types']) and !in_array($this->mime_type, $allowed['mime_types'])) {
             throw new Kohana_Exception(
                 'Mime type not allowed: :has (Allowed: :allowed)',
                 array(

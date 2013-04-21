@@ -81,7 +81,7 @@ class DataURIFile {
     public function save($filename, $mode = 0644, $dirmode = 0755) {
         $path = dirname($filename);
         if (!is_dir($path)) {
-            if (mkdir($path, $dirmode, true)) {
+            if (!mkdir($path, $dirmode, true)) {
                 throw new Kohana_Exception(
                     'Cannot create directory :dir',
                     array(':dir' => Debug::path($path))
